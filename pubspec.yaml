@@ -43,6 +43,7 @@ dependencies:
   provider: ^6.1.1
   popover: ^0.2.9
   intl: ^0.18.1
+  sqflite_common_ffi: ^2.3.2+1
 
 dev_dependencies:
   flutter_test:
