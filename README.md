@@ -1,16 +1,8 @@
-# journal
+# Aariz
 
-A new Flutter project.
+Another notes app.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_1707457923](https://github.com/imrofayel/Aariz/assets/134688534/5427d27a-beb9-4f97-9efb-a42426cc6eb9)
+![Screenshot_1707457917](https://github.com/imrofayel/Aariz/assets/134688534/f1413d72-08fb-4168-84fe-35da000b65fa)
+![Screenshot_1707457914](https://github.com/imrofayel/Aariz/assets/134688534/30b3f219-7571-41b2-862b-c87b0d64db26)
+![Screenshot_1707457780](https://github.com/imrofayel/Aariz/assets/134688534/2cfb0f29-140d-4c8a-a6b4-5ed51f3a2616)
