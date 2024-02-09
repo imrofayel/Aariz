@@ -212,7 +212,7 @@ class _NotesViewState extends State<NotesView> {
 
                                             style: ButtonStyle(
                                                                                     
-                                              padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 6, 12, 6)),
+                                              padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 10, 12, 6)),
                                                                             
                                               backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
                                                                               

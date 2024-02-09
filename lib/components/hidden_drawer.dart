@@ -121,7 +121,9 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
             
             icon: Icon(LineIcons.horizontalEllipsis, color: Theme.of(context).colorScheme.tertiary), 
             
-            onPressed: (){  
+            onPressed: (){
+
+              Provider.of<ThemeSwitcher>(context, listen: false).ghibliTheme();
 
               showDialog(context: context, builder:(context) {
                   
