@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:journal/theme/themes.dart';
 class ThemeSwitcher with ChangeNotifier{
 
-  ThemeData _themeData = Themes.lightTheme;
+  ThemeData _themeData = Themes.darkTheme;
 
   ThemeData get themeData => _themeData;
 
@@ -22,5 +22,4 @@ class ThemeSwitcher with ChangeNotifier{
       themeData = Themes.lightTheme;
     }
   }
-
 }

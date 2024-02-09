@@ -41,7 +41,6 @@ dependencies:
   path_provider: ^2.1.2
   sqflite: ^2.3.2
   provider: ^6.1.1
-  flutter_svg: ^2.0.9
   popover: ^0.2.9
   intl: ^0.18.1
 
@@ -68,9 +67,7 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-     - assets/images/empty.svg
-     - assets/images/empty_dark.svg
+  # assets:
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 class Themes {
 
-  static Color? textColorLight = const Color.fromRGBO(43, 43, 43, 1);
-
   static ThemeData lightTheme = ThemeData(
 
     useMaterial3: true,
@@ -55,9 +53,6 @@ class Themes {
       toolbarHeight: 80,
     ),
   );
-
-  
-  static Color? textColorDark = const Color.fromRGBO(192, 212, 190, 1);
 
   static ThemeData darkTheme = ThemeData(
 

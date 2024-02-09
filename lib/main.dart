@@ -34,7 +34,7 @@ class _AarizState extends State<Aariz> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContexcontext) {
 
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp, // Portrait mode only

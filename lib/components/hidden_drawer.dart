@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 import 'package:journal/theme/theme_provider.dart';
 import 'package:journal/views/Home/home.dart';
@@ -30,7 +31,7 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
       
       ItemHiddenMenu(
 
-        name: "Notes",
+        name: "Journal",
 
         colorLineSelected: Colors.transparent,
 
@@ -120,7 +121,30 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
             
             icon: Icon(LineIcons.horizontalEllipsis, color: Theme.of(context).colorScheme.tertiary), 
             
-            onPressed: (){}, 
+            onPressed: (){  
+
+              showDialog(context: context, builder:(context) {
+                  
+                  return CupertinoAlertDialog(content: Padding(
+                      
+                      padding: const EdgeInsets.all(5.0),
+                      
+                      child: Column(
+
+                        children: [
+
+                          Text("Aariz v1.0", style: TextStyle(fontSize: 30, color: Theme.of(context).colorScheme.tertiary, fontFamily: "Inter", height: 1.4), textAlign: TextAlign.left),
+
+                          const Gap(20),
+
+                          Text("by Adam Rofayel", style: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.tertiary, fontFamily: "Inter"), textAlign: TextAlign.left),
+
+                        ],
+                      ),
+                  ));
+              });
+
+            }, 
             
             padding: EdgeInsets.zero, 
             

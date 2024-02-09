@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:journal/components/date.dart';
@@ -65,49 +66,61 @@ class _EditorState extends State<Editor> {
         return Scaffold(
 
           bottomNavigationBar:
-          
-          FilledButton.tonal(
-                                                  
-            onPressed: () async{
 
-              var $date = await showDatePickerDialog(context);
+          Padding(
+
+            padding: const EdgeInsets.all(20),
+
+            child: Row(
+            
+            mainAxisAlignment: MainAxisAlignment.end,
               
-              setState((){
-
-                date = DateFormat('EE, d MMMM y').format($date);
-
-              });
-            },
-
-            style: ButtonStyle(
-                                                                                    
-              padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(16, 12, 16, 12)),
-                                            
-              backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
+            children: [
+            
+            FilledButton.tonal(
+                                                    
+              onPressed: () async{
+            
+                var $date = await showDatePickerDialog(context);
+                
+                setState((){
+            
+                  date = DateFormat('EE, d MMMM y').format($date);
+            
+                });
+              },
+            
+              style: ButtonStyle(
+                                                                                      
+                padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(16, 12, 16, 12)),
                                               
-            ), 
-                                                            
-            child: SingleChildScrollView(
-                                          
-              scrollDirection: Axis.horizontal,
-                                          
-                child: Row(
-                                
-                  mainAxisAlignment: MainAxisAlignment.center,
-
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                                
-                  children: [
-                                                                                    
-                    Icon(Icons.circle, color: Theme.of(context).colorScheme.tertiary, size: 14),
-                                
-                    const Gap(6),
-                                
-                    Text(date, textScaler: const TextScaler.linear(1.4)),
-                  ],
+                backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
+                                                
+              ), 
+                                                              
+              child: SingleChildScrollView(
+                                            
+                scrollDirection: Axis.horizontal,
+                                            
+                  child: Row(
+                                  
+                    mainAxisAlignment: MainAxisAlignment.center,
+            
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                                  
+                    children: [
+                                                                                   
+                      Icon(Icons.circle, color: Theme.of(context).colorScheme.tertiary, size: 14),
+                                  
+                      const Gap(6),
+                                  
+                      Text(date, textScaler: const TextScaler.linear(1.4)),
+                    ],
+                  ),
                 ),
-              ),
-            ),
+              ),           
+            ]),
+          ),
 
           body: Container(
 
@@ -329,6 +342,8 @@ class _EditorState extends State<Editor> {
                                               
                       onPressed: (){
 
+                        if(titleController.text.isNotEmpty && descriptionController.text.isNotEmpty){
+
                         if(widget.note != null){
 
                           value.dbHelper.update(NotesModel(title: titleController.text, description: descriptionController.text, category: category, date: date, id: widget.note!.id));
@@ -348,6 +363,18 @@ class _EditorState extends State<Editor> {
                         }
 
                         Navigator.of(context).pop();
+
+                        } else{
+
+                          showDialog(context: context, builder:(context) {
+                            return CupertinoAlertDialog(content: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Text("Please enter title and description", style: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.tertiary, fontFamily: "Inter", height: 1.4), textAlign: TextAlign.left),
+                            ));
+                          });
+
+                        }
+
                       },
                                             
                       style: ButtonStyle(

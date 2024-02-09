@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:journal/database/db_provider.dart';
 import 'package:journal/database/notes.dart';
@@ -274,19 +273,13 @@ class _NotesViewState extends State<NotesView> {
         
                             Center(
                             
-                              child: SvgPicture.asset( 
-                              
-                                Theme.of(context).brightness == Brightness.light ? 'assets/images/empty.svg' : 'assets/images/empty_dark.svg',
+                              child: Icon(LineIcons.seedling, size: 100, color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3))
 
-                                semanticsLabel: 'Empty', 
-                                height: 150, 
-                                width: 80, 
-                              ),
                             ),
         
-                            const Gap(60),
+                            const Gap(25),
         
-                            Text("Your canvas is blank.", textScaler: const TextScaler.linear(2), style: TextStyle(color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3))),
+                            Text("Your canvas is blank.", textScaler: const TextScaler.linear(2.2), style: TextStyle(color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3))),
 
                             const Gap(100),
                           ],
