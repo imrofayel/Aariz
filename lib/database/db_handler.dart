@@ -37,13 +37,22 @@ initDatabase() async {
 
     final path = join(databasesPath, 'notesDB.db');
 
-    _db = await databaseFactory.openDatabase(
-      path,
-      options: OpenDatabaseOptions(
-        onCreate: _onCreate,
-        version: 1,
-      ),
-    );
+    if(Platform.isAndroid || Platform.isIOS){
+
+      _db = await openDatabase(path, version: 1, onCreate: _onCreate);
+
+    }
+    
+    else {
+        _db = await databaseFactory.openDatabase(
+        path,
+        options: OpenDatabaseOptions(
+          onCreate: _onCreate,
+          version: 1,
+        ),
+      );
+    }
+
 
     return _db;
   }
