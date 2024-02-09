@@ -10,32 +10,37 @@ Future<DateTime> showDatePickerDialog(BuildContext context) async {
     
     builder: (context){
 
-        return Container(
-        
-          decoration: BoxDecoration(
-            
-            color: Theme.of(context).colorScheme.primary,
+        return GestureDetector(
 
-          ),
-        
-          child: CupertinoDatePicker(
-                  
-            onDateTimeChanged: (value) {
-                  
-                selectedDate = value;       
-                  
-            },
-                  
-            mode: CupertinoDatePickerMode.date,
-                  
-            initialDateTime: DateTime.now(),
-                  
-            minimumYear: 1990,
-                  
-            maximumDate: DateTime.now(),
-                  
-            itemExtent: 60,
-                  
+          onDoubleTap: () => Navigator.pop(context),
+
+          child: Container(
+          
+            decoration: BoxDecoration(
+              
+              color: Theme.of(context).colorScheme.primary,
+          
+            ),
+          
+            child: CupertinoDatePicker(
+                    
+              onDateTimeChanged: (value) {
+                    
+                  selectedDate = value;       
+                    
+              },
+                    
+              mode: CupertinoDatePickerMode.date,
+                    
+              initialDateTime: DateTime.now(),
+                    
+              minimumYear: 1990,
+                    
+              maximumDate: DateTime.now(),
+                    
+              itemExtent: 60,
+                    
+            ),
           ),
         );
       },

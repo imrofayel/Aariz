@@ -91,7 +91,7 @@ class _EditorState extends State<Editor> {
               },
             
               style: ButtonStyle(
-                                                                                      
+
                 padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(16, 12, 16, 12)),
                                               
                 backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)

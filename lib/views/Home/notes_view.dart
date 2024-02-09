@@ -191,7 +191,7 @@ class _NotesViewState extends State<NotesView> {
 
                                                             Navigator.pop(context);
 
-                                                            }, icon: const Icon(CupertinoIcons.delete, size: 18), label: Text("Delete", style: TextStyle(color: Colors.red.withOpacity(0.9), fontSize: 16)), style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.tertiary), padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(18, 10, 18, 10))))
+                                                            }, icon: const Icon(CupertinoIcons.delete, size: 18), label: Text("Delete", style: TextStyle(color: Colors.red.withOpacity(0.9), fontSize: 16)), style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.tertiary), padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(18, 18, 18, 18))))
                                                       
                                                           );
                                                         },
@@ -200,7 +200,6 @@ class _NotesViewState extends State<NotesView> {
                                                       }, icon: const Icon(LineIcons.verticalEllipsis, size: 28), padding: EdgeInsets.zero);
                                                     }
                                                   ),
-
 
                                                 ],
                                               ),
