@@ -3,7 +3,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:journal/database/notes.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
-import 'dart:io' as io;
+import 'dart:io' show Platform;
 
 class DBHelper {
   static Database? _db;
@@ -18,18 +18,34 @@ class DBHelper {
     return _db;
   }
 
-  initDatabase() async {
-    // Explicitly set the databaseFactory when using sqflite_common_ffi
+initDatabase() async {
     sqfliteFfiInit();
-    databaseFactory = databaseFactoryFfi;
+    final databaseFactory = databaseFactoryFfi;
 
-    io.Directory documentDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentDirectory.path, 'notesDB.db');
+    // Determine the correct directory based on the platform
+    String databasesPath;
+    
+    if (Platform.isIOS || Platform.isAndroid) {
+      // For mobile platforms
+      final documentsDirectory = await getApplicationDocumentsDirectory();
+      databasesPath = documentsDirectory.path;
 
-    // Use `openDatabase` from `sqflite_common` instead of `sqflite`
-    var db = await openDatabase(path, version: 1, onCreate: _onCreate);
+    } else {
+      // For other platforms (e.g., Windows)
+      databasesPath = 'C:/NotesDatabase'; // Specify your custom directory path
+    }
 
-    return db;
+    final path = join(databasesPath, 'notesDB.db');
+
+    _db = await databaseFactory.openDatabase(
+      path,
+      options: OpenDatabaseOptions(
+        onCreate: _onCreate,
+        version: 1,
+      ),
+    );
+
+    return _db;
   }
 
   _onCreate(Database db, int version) async {
