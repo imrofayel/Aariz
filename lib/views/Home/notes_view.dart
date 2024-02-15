@@ -176,7 +176,7 @@ class _NotesViewState extends State<NotesView> {
                                                   
                                                     style: ButtonStyle(
                                                                           
-                                                      padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 6, 10, 6)),
+                                                      padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(14, 16, 14, 16)),
                                                           
                                                       backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
                                                     ), 
@@ -250,6 +250,8 @@ class _NotesViewState extends State<NotesView> {
                                               ),
                                             ],
                                           ),
+
+                                          const Gap(6),
                                           
                                           FilledButton.tonal(
                                                   
@@ -285,7 +287,7 @@ class _NotesViewState extends State<NotesView> {
                                               ),
                                             ),
 
-                                          const Gap(6),
+                                          const Gap(8),
 
                                           Text(snapshot.data![index].description, textScaler: const TextScaler.linear(1.55), style: const TextStyle(height: 1.6)),
                                         ],
