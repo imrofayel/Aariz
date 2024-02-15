@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
-import 'package:journal/components/hidden_drawer.dart';
 import 'package:journal/database/db_provider.dart';
 import 'package:journal/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:journal/views/Home/notes_view.dart';
 import 'package:provider/provider.dart';
 
 void main(){
@@ -50,7 +50,7 @@ class _AarizState extends State<Aariz> {
           
           theme: Provider.of<ThemeSwitcher>(context).themeData,
 
-          home: const HiddenDrawer(),
+          home: const NotesView()
         );
       },  
     );
