@@ -421,8 +421,8 @@ class _EditorState extends State<Editor> {
                 ],        
               ),
             ),
-                    ),
           ),
+        ),
       );
     });
   }

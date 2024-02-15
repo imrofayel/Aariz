@@ -10,6 +10,7 @@ import 'package:popover/popover.dart';
 import 'package:provider/provider.dart';
 
 class NotesView extends StatefulWidget {
+  
   const NotesView({super.key});
 
   @override
@@ -289,7 +290,7 @@ class _NotesViewState extends State<NotesView> {
 
                                           const Gap(8),
 
-                                          Text(snapshot.data![index].description, textScaler: const TextScaler.linear(1.55), style: const TextStyle(height: 1.6)),
+                                          Text(snapshot.data![index].description.toString(), textScaler: const TextScaler.linear(1.55), style: const TextStyle(height: 1.6)),
                                         ],
                                       ),
                                     ),

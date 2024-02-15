@@ -37,13 +37,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   line_icons: ^2.0.3
   gap: ^3.0.1
-  hidden_drawer_menu: ^3.0.1
   path_provider: ^2.1.2
   sqflite: ^2.3.2
   provider: ^6.1.1
   popover: ^0.2.9
   intl: ^0.18.1
   sqflite_common_ffi: ^2.3.2+1
+  flutter_markdown: ^0.6.19
 
 dev_dependencies:
   flutter_test:
@@ -68,8 +68,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-     - assets/fonts/Itim.ttf
+  #assets:
+    #  - assets/fonts/Itim.ttf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
