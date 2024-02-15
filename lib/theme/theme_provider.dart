@@ -22,9 +22,4 @@ class ThemeSwitcher with ChangeNotifier{
       themeData = Themes.lightTheme;
     }
   }
-
-  void ghibliTheme(){
-
-      themeData = Themes.ghibliTheme;
-    }
 }

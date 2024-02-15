@@ -92,7 +92,7 @@ class _EditorState extends State<Editor> {
             
               style: ButtonStyle(
 
-                padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(16, 12, 16, 12)),
+                padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(14, 16, 14, 16)),
                                               
                 backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
                                                 
@@ -122,202 +122,274 @@ class _EditorState extends State<Editor> {
             ]),
           ),
 
-          body: Container(
+          body: Expanded(
 
-          height: MediaQuery.of(context).size.height,
-
-          width: MediaQuery.of(context).size.height,
-
-          margin: const EdgeInsets.all(24),
-
-          child: SingleChildScrollView(
-
-            scrollDirection: Axis.vertical,
-
-            child: Column(
-                  
-              mainAxisAlignment: MainAxisAlignment.start,
-                  
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Container(
             
-              children: [
+            margin: const EdgeInsets.all(24),
             
-                const Gap(30),
+            child: SingleChildScrollView(
             
-                Row(
+              scrollDirection: Axis.vertical,
             
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            
-                  children: [
-            
-                    Builder(
+              child: Column(
+                    
+                mainAxisAlignment: MainAxisAlignment.start,
+                    
+                crossAxisAlignment: CrossAxisAlignment.start,
+              
+                children: [
 
-                      builder: (context) =>
+                  IconButton.filled(onPressed: (){
 
+                    Navigator.pop(context);
+                    
+                  }, icon: const Icon(Icons.arrow_back), color: Theme.of(context).colorScheme.tertiary),
+              
+                  const Gap(20),
+              
+                  Row(
+              
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              
+                    children: [
+              
+                      Builder(
+            
+                        builder: (context) =>
+            
+                        FilledButton.tonal(
+                                                  
+                          onPressed: (){
+                        
+                            showPopover(
+            
+                              arrowDyOffset: 10,
+            
+                              arrowHeight: 0, arrowWidth: 0,
+            
+                              backgroundColor: Colors.transparent,
+            
+                              barrierColor: Colors.transparent,
+            
+                              shadow: List.empty(),
+                              
+                              context: context,
+                                                    
+                              bodyBuilder: (context){
+                        
+                                return SingleChildScrollView(
+            
+                                  scrollDirection: Axis.horizontal,
+            
+                                  child: Row(
+            
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                  
+                                    children: [
+            
+                                      const Gap(30),
+                                  
+                                      FilledButton.tonal(
+                                                    
+                                        onPressed: (){
+                                          
+                                          setState(() {
+                                            category = "Office";
+                                          });
+                                        },
+                                                              
+                                        style: ButtonStyle(
+
+                                        padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(14, 16, 14, 16)),
+                                            
+                                        backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
+                                                
+                                        ), 
+                                                              
+                                        child: SingleChildScrollView(
+                                            
+                                          scrollDirection: Axis.horizontal,
+                                            
+                                          child: Row(
+                                  
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                  
+                                            children: [
+
+                                              Icon(Icons.circle, color: Theme.of(context).colorScheme.primaryContainer, size: 14),
+                                  
+                                              const Gap(6),
+                                  
+                                              const Text("Office", textScaler: TextScaler.linear(1.3)),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+            
+                                      const Gap(10),
+            
+                                      FilledButton.tonal(
+                                                    
+                                        onPressed: (){
+                                          
+                                          setState(() {
+                                            category = "Personal";
+                                          });
+                                        },
+                                                              
+                                        style: ButtonStyle(
+
+                                        padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(14, 16, 14, 16)),
+                                            
+                                        backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
+                                                
+                                        ), 
+                                                              
+                                        child: SingleChildScrollView(
+                                            
+                                          scrollDirection: Axis.horizontal,
+                                            
+                                          child: Row(
+                                  
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                  
+                                            children: [
+                                                                                    
+                                              Icon(Icons.circle, color: Theme.of(context).colorScheme.tertiaryContainer, size: 14),
+                                  
+                                              const Gap(6),
+                                  
+                                              const Text("Personal", textScaler: TextScaler.linear(1.3)),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+            
+                                      const Gap(10),
+            
+                                      FilledButton.tonal(
+                                                    
+                                        onPressed: (){
+            
+                                          setState(() {
+            
+                                            category = "Studies";
+            
+                                          });         
+                                        },
+                                                              
+                                        style: ButtonStyle(
+
+                                        padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(14, 16, 14, 16)),
+                                            
+                                        backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
+                                                
+                                        ), 
+                                                              
+                                        child: SingleChildScrollView(
+                                            
+                                          scrollDirection: Axis.horizontal,
+                                            
+                                          child: Row(
+                                  
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                  
+                                            children: [
+
+                                              Icon(Icons.circle, color: Theme.of(context).colorScheme.secondaryContainer, size: 14),
+                                  
+                                              const Gap(6),
+                                  
+                                              const Text("Studies", textScaler: TextScaler.linear(1.3)),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                            }
+                          );
+                        },
+                                                
+                        style: ButtonStyle(
+                                                                        
+                          padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(14, 16, 14, 16)),
+                              
+                          backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
+                                  
+                        ),
+                                                
+                        child: SingleChildScrollView(
+                              
+                            scrollDirection: Axis.horizontal,
+                              
+                            child: Row(
+                                                                                
+                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                
+                              children: [
+                                                                                
+                                Icon(Icons.circle, color: categoryColor(), size: 14),
+                                                                                
+                                const Gap(6),
+                                                                                
+                                Text(category, textScaler: const TextScaler.linear(1.3)),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+              
                       FilledButton.tonal(
                                                 
                         onPressed: (){
-                      
-                          showPopover(
-
-                            arrowDyOffset: 10,
-
-                            arrowHeight: 0, arrowWidth: 0,
-
-                            backgroundColor: Colors.transparent,
-
-                            barrierColor: Colors.transparent,
-
-                            shadow: List.empty(),
-                            
-                            context: context,
-                                                  
-                            bodyBuilder: (context){
-                      
-                              return SingleChildScrollView(
-
-                                scrollDirection: Axis.horizontal,
-
-                                child: Row(
-
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                
-                                  children: [
-
-                                    const Gap(30),
-                                
-                                    FilledButton.tonal(
-                                                  
-                                      onPressed: (){
-                                        
-                                        setState(() {
-                                          category = "Office";
-                                        });
-                                      },
-                                                            
-                                      style: ButtonStyle(
-                                                                                    
-                                      padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 0, 12, 0)),
-                                          
-                                      backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
-                                              
-                                      ), 
-                                                            
-                                      child: SingleChildScrollView(
-                                          
-                                        scrollDirection: Axis.horizontal,
-                                          
-                                        child: Row(
-                                
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                
-                                          children: [
-                                                                                    
-                                            Icon(Icons.circle, color: Theme.of(context).colorScheme.primaryContainer, size: 14),
-                                
-                                            const Gap(6),
-                                
-                                            const Text("Office", textScaler: TextScaler.linear(1.3)),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                    const Gap(10),
-
-                                    FilledButton.tonal(
-                                                  
-                                      onPressed: (){
-                                        
-                                        setState(() {
-                                          category = "Personal";
-                                        });
-                                      },
-                                                            
-                                      style: ButtonStyle(
-                                                                                    
-                                      padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 0, 12, 0)),
-                                          
-                                      backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
-                                              
-                                      ), 
-                                                            
-                                      child: SingleChildScrollView(
-                                          
-                                        scrollDirection: Axis.horizontal,
-                                          
-                                        child: Row(
-                                
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                
-                                          children: [
-                                                                                  
-                                            Icon(Icons.circle, color: Theme.of(context).colorScheme.tertiaryContainer, size: 14),
-                                
-                                            const Gap(6),
-                                
-                                            const Text("Personal", textScaler: TextScaler.linear(1.3)),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                    const Gap(10),
-
-                                    FilledButton.tonal(
-                                                  
-                                      onPressed: (){
-
-                                        setState(() {
-
-                                          category = "Studies";
-
-                                        });         
-                                      },
-                                                            
-                                      style: ButtonStyle(
-                                                                                    
-                                      padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 0, 12, 0)),
-                                          
-                                      backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
-                                              
-                                      ), 
-                                                            
-                                      child: SingleChildScrollView(
-                                          
-                                        scrollDirection: Axis.horizontal,
-                                          
-                                        child: Row(
-                                
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                
-                                          children: [
-                                                                                    
-                                            Icon(Icons.circle, color: Theme.of(context).colorScheme.secondaryContainer, size: 14),
-                                
-                                            const Gap(6),
-                                
-                                            const Text("Studies", textScaler: TextScaler.linear(1.3)),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
+            
+                          if(titleController.text.isNotEmpty && descriptionController.text.isNotEmpty){
+            
+                          if(widget.note != null){
+            
+                            value.dbHelper.update(NotesModel(title: titleController.text, description: descriptionController.text, category: category, date: date, id: widget.note!.id));
+              
+                            value.initDatabase();
+              
+                            value.setLength();
+                          } 
+            
+                          else{
+            
+                            value.dbHelper.insert(NotesModel(title: titleController.text, description: descriptionController.text, category: category, date: date));
+              
+                            value.initDatabase();
+              
+                            value.setLength();
                           }
-                        );
-                      },
+            
+                          Navigator.of(context).pop();
+            
+                          } else{
+            
+                            showDialog(context: context, builder:(context) {
+                              return CupertinoAlertDialog(content: Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Text("Please enter title and description", style: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.tertiary, fontFamily: "Inter", height: 1.4), textAlign: TextAlign.left),
+                              ));
+                            });
+            
+                          }
+            
+                        },
                                               
-                      style: ButtonStyle(
+                        style: ButtonStyle(
                                                                       
-                        padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(14, 10, 14, 10)),
+                        padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(14, 16, 14, 16)),
                             
                         backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
                                 
-                      ),
+                        ), 
                                               
-                      child: SingleChildScrollView(
+                        child: SingleChildScrollView(
                             
                           scrollDirection: Axis.horizontal,
                             
@@ -327,97 +399,30 @@ class _EditorState extends State<Editor> {
                                                                               
                             children: [
                                                                               
-                              Icon(Icons.circle, color: categoryColor(), size: 14),
+                              Icon(Icons.circle, color: Theme.of(context).colorScheme.secondaryContainer, size: 14),
                                                                               
                               const Gap(6),
                                                                               
-                              Text(category, textScaler: const TextScaler.linear(1.3)),
+                              const Text("Save", textScaler: TextScaler.linear(1.3)),
                             ],
                           ),
                         ),
                       ),
-                    ),
-            
-                    FilledButton.tonal(
-                                              
-                      onPressed: (){
-
-                        if(titleController.text.isNotEmpty && descriptionController.text.isNotEmpty){
-
-                        if(widget.note != null){
-
-                          value.dbHelper.update(NotesModel(title: titleController.text, description: descriptionController.text, category: category, date: date, id: widget.note!.id));
-            
-                          value.initDatabase();
-            
-                          value.setLength();
-                        } 
-
-                        else{
-
-                          value.dbHelper.insert(NotesModel(title: titleController.text, description: descriptionController.text, category: category, date: date));
-            
-                          value.initDatabase();
-            
-                          value.setLength();
-                        }
-
-                        Navigator.of(context).pop();
-
-                        } else{
-
-                          showDialog(context: context, builder:(context) {
-                            return CupertinoAlertDialog(content: Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Text("Please enter title and description", style: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.tertiary, fontFamily: "Inter", height: 1.4), textAlign: TextAlign.left),
-                            ));
-                          });
-
-                        }
-
-                      },
-                                            
-                      style: ButtonStyle(
-                                                                    
-                      padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(14, 10, 14, 10)),
-                          
-                      backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
-                              
-                      ), 
-                                            
-                      child: SingleChildScrollView(
-                          
-                        scrollDirection: Axis.horizontal,
-                          
-                        child: Row(
-                                                                            
-                          mainAxisAlignment: MainAxisAlignment.center,
-                                                                            
-                          children: [
-                                                                            
-                            Icon(Icons.circle, color: Theme.of(context).colorScheme.secondaryContainer, size: 14),
-                                                                            
-                            const Gap(6),
-                                                                            
-                            const Text("Save", textScaler: TextScaler.linear(1.3)),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-            
-                const Gap(14),
-                              
-                textBox(titleController, context,50, 30, 1, "Subject"),
-                              
-                const Gap(8),
-                              
-                textBox(descriptionController, context, 40, 25, null, "Capture your thoughts here..."),
-              ],        
+                    ],
+                  ),
+              
+                  const Gap(14),
+                                
+                  textBox(titleController, context,50, 30, 1, "Subject"),
+                                
+                  const Gap(8),
+                                
+                  textBox(descriptionController, context, 40, 25, null, "Capture your thoughts here..."),
+                ],        
+              ),
             ),
+                    ),
           ),
-        ),
       );
     });
   }

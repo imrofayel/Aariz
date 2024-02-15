@@ -41,6 +41,8 @@ class Themes {
     ),
 
     appBarTheme: const AppBarTheme(
+
+      backgroundColor: Colors.transparent,
       
       elevation: 0,
 
@@ -93,59 +95,8 @@ class Themes {
     ),
 
     appBarTheme: const AppBarTheme(
-      
-      elevation: 0,
 
-      iconTheme: IconThemeData(size: 32),
-
-      shadowColor: Colors.transparent,
-
-      actionsIconTheme: IconThemeData(size: 34),
-
-      toolbarHeight: 80,
-    ),
-  );
-
-
-  static ThemeData ghibliTheme = ThemeData(
-
-    useMaterial3: true,
-
-    fontFamily: "Itim",
-
-    textTheme: const TextTheme(
-
-      bodyMedium: TextStyle(color: Colors.black),
-      
-      bodyLarge: TextStyle(color: Colors.black),
-
-      bodySmall: TextStyle(color: Colors.black),
-
-    ),
-
-    colorScheme: ColorScheme.fromSeed(
-
-      brightness: Brightness.light,
-
-      seedColor: Colors.green,
-
-      background: const Color.fromRGBO(234, 235, 220,1),
-
-      secondary: const Color.fromRGBO(238, 239, 223, 1),
-
-      primary: const Color.fromRGBO(245, 245, 244, 1),
-
-      primaryContainer: const Color.fromRGBO(51, 158, 184, 1),
-
-      secondaryContainer: const Color.fromRGBO(162, 217, 217, 1),
-
-      tertiaryContainer: const Color.fromRGBO(232, 184, 235, 1),
-
-      tertiary: Colors.black,
-
-    ),
-
-    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.transparent,
       
       elevation: 0,
 

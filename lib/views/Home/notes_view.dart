@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:journal/database/db_provider.dart';
 import 'package:journal/database/notes.dart';
+import 'package:journal/theme/theme_provider.dart';
 import 'package:journal/views/editor.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:popover/popover.dart';
@@ -30,6 +31,50 @@ class _NotesViewState extends State<NotesView> {
       builder: (context, value, child){
       
       return Scaffold(
+
+        appBar: AppBar(
+
+          leadingWidth: 80,
+
+          leading: IconButton.filled(onPressed: (){}, icon: Icon(LineIcons.horizontalEllipsis, color: Theme.of(context).colorScheme.tertiary), padding: EdgeInsets.zero,
+            
+            style: ButtonStyle(
+          
+              fixedSize: const MaterialStatePropertyAll(Size(55, 35)),
+          
+              backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.secondary),
+            )),
+
+          actions: [
+
+            Padding(
+
+              padding: const EdgeInsets.only(right: 20),
+
+              child: IconButton.filled(
+                
+                icon: Icon(
+
+                  LineIcons.fill,
+                  
+                  color: Theme.of(context).colorScheme.tertiary, size: 32), 
+                
+                onPressed: (){
+
+                  Provider.of<ThemeSwitcher>(context, listen: false).toggleTheme();
+
+                }, 
+                
+                padding: EdgeInsets.zero, 
+                
+                style: ButtonStyle(
+
+                  backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.background),
+                ),
+              ),
+            ),
+          ],
+        ),
 
         floatingActionButton: IconButton(onPressed: (){
 

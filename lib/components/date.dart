@@ -18,7 +18,7 @@ Future<DateTime> showDatePickerDialog(BuildContext context) async {
           
             decoration: BoxDecoration(
               
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).colorScheme.background,
           
             ),
           
