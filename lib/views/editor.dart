@@ -285,7 +285,7 @@ class _EditorState extends State<Editor> {
                                             
                                         backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
                                                 
-                                        ), 
+                                        ),
                                                               
                                         child: SingleChildScrollView(
                                             
