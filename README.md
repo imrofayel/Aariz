@@ -6,6 +6,8 @@
 
 Aariz is a minimalist note taking application. 
 
+![ezgif com-animated-gif-maker (2)](https://github.com/imrofayel/Aariz/assets/134688534/b8b80f17-dd2b-4f99-9322-d946dfef265f)
+
 #### Contributions
 
 Contributions are welcome! If you'd like to contribute to Ozan, feel free to submit a pull request.
