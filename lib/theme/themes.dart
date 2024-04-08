@@ -76,7 +76,7 @@ class Themes {
 
       seedColor: Colors.green,
 
-      background: const Color.fromRGBO(40, 47, 40, 1),
+      background: const Color.fromARGB(255, 36, 57, 42),
 
       secondary: const Color.fromARGB(255, 53, 83, 62),
 

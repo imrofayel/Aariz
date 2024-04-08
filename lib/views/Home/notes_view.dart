@@ -117,7 +117,11 @@ class _NotesViewState extends State<NotesView> {
                                                       
                                             children: [
                                               
-                                              Text(snapshot.data![index].title, textScaler: const TextScaler.linear(1.8)),
+                                              SingleChildScrollView(
+
+                                                scrollDirection: Axis.horizontal,
+
+                                                child: Text(snapshot.data![index].title, textScaler: const TextScaler.linear(1.8))),
 
                                               Row(
 
