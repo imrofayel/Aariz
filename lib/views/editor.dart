@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:journal/components/date.dart';
+import 'package:journal/components/snackbar.dart';
 import 'package:journal/database/db_provider.dart';
 import 'package:journal/database/notes.dart';
 import 'package:popover/popover.dart';
@@ -366,13 +367,7 @@ class _EditorState extends State<Editor> {
 
                         } else{
 
-                          showDialog(context: context, builder:(context) {
-                            return CupertinoAlertDialog(content: Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Text("Please enter title and description", style: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.tertiary, fontFamily: "Inter", height: 1.4), textAlign: TextAlign.left),
-                            ));
-                          });
-
+                          SnackBarUtils.showSnackbar(context, CupertinoIcons.pencil_outline, "Please enter title & description!");
                         }
 
                       },
@@ -409,11 +404,11 @@ class _EditorState extends State<Editor> {
             
                 const Gap(14),
                               
-                textBox(titleController, context,50, 30, 1, "Subject"),
+                textBox(titleController, context, 50, 30, 1, "Subject"),
                               
                 const Gap(8),
                               
-                textBox(descriptionController, context, 40, 25, null, "Capture your thoughts here..."),
+                textBox(descriptionController, context, 40, 23, null, "Capture your thoughts here..."),
               ],        
             ),
           ),
@@ -455,7 +450,7 @@ TextField textBox(TextEditingController controller, context, double cursorHeight
 
         color: Theme.of(context).colorScheme.tertiary,
 
-        height: 1.7,
+        height: 1.6,
 
         fontSize: fontSize
       ),

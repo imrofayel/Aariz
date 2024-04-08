@@ -70,7 +70,7 @@ class _NotesViewState extends State<NotesView> {
                             child: ListView.builder(
 
                               scrollDirection: Axis.vertical,
-                                                                                    
+
                               itemCount: snapshot.data!.length,
                               
                               itemBuilder:(context, index) {
@@ -117,7 +117,7 @@ class _NotesViewState extends State<NotesView> {
                                                       
                                             children: [
                                               
-                                              Text(snapshot.data![index].title, textScaler: const TextScaler.linear(2)),
+                                              Text(snapshot.data![index].title, textScaler: const TextScaler.linear(1.8)),
 
                                               Row(
 
@@ -168,7 +168,9 @@ class _NotesViewState extends State<NotesView> {
 
                                                       return IconButton(onPressed: (){
                                                       
-                                                        showPopover(context: context, 
+                                                        showPopover(context: context,
+
+                                                        barrierColor: Colors.transparent, 
 
                                                         backgroundColor: Colors.transparent,
 
@@ -182,16 +184,17 @@ class _NotesViewState extends State<NotesView> {
                                                       
                                                           return SizedBox(
                                                       
-                                                            child: FilledButton.icon(onPressed: (){
+                                                            child: FilledButton(onPressed: (){
+                                                              
+                                                            value.dbHelper.delete(snapshot.data![index].id);
 
-                                                                                                                                                value.dbHelper.delete(snapshot.data![index].id);
                                                             value.initDatabase();
                                                             
                                                             value.setLength();
 
                                                             Navigator.pop(context);
 
-                                                            }, icon: const Icon(CupertinoIcons.delete, size: 18), label: Text("Delete", style: TextStyle(color: Colors.red.withOpacity(0.9), fontSize: 16)), style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.tertiary), padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(18, 18, 18, 18))))
+                                                            }, style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary), padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 20, 12, 20)), side: MaterialStatePropertyAll(BorderSide(color: Theme.of(context).colorScheme.secondary))), child: Icon(CupertinoIcons.delete, size: 24, color: Theme.of(context).colorScheme.tertiary))
                                                       
                                                           );
                                                         },

@@ -1,14 +1,16 @@
-import 'package:sqflite_common_ffi/sqflite_ffi.dart'; // Import from sqflite_common_ffi
+import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:journal/database/notes.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
-import 'dart:io' show Platform;
+import 'dart:io' as io;
 
 class DBHelper {
+
   static Database? _db;
 
   Future<Database?> get db async {
+
     if (_db != null) {
       return _db;
     }
@@ -18,46 +20,19 @@ class DBHelper {
     return _db;
   }
 
-initDatabase() async {
-    sqfliteFfiInit();
-    final databaseFactory = databaseFactoryFfi;
-
-    // Determine the correct directory based on the platform
-    String databasesPath;
+  initDatabase() async {
     
-    if (Platform.isIOS || Platform.isAndroid) {
-      // For mobile platforms
-      final documentsDirectory = await getApplicationDocumentsDirectory();
-      databasesPath = documentsDirectory.path;
+    io.Directory documentDirectory = await getApplicationDocumentsDirectory();
 
-    } else {
-      // For other platforms (e.g., Windows)
-      databasesPath = 'C:/NotesDatabase'; // Specify your custom directory path
-    }
+    String path = join(documentDirectory.path, 'notesDB.db');
 
-    final path = join(databasesPath, 'notesDB.db');
+    var db = await openDatabase(path, version: 1, onCreate: _onCreate);
 
-    if(Platform.isAndroid || Platform.isIOS){
-
-      _db = await openDatabase(path, version: 1, onCreate: _onCreate);
-
-    }
-    
-    else {
-        _db = await databaseFactory.openDatabase(
-        path,
-        options: OpenDatabaseOptions(
-          onCreate: _onCreate,
-          version: 1,
-        ),
-      );
-    }
-
-
-    return _db;
+    return db;
   }
 
   _onCreate(Database db, int version) async {
+
     await db.execute(
         'CREATE TABLE notes (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, description TEXT NOT NULL, category TEXT NOT NULL, date TEXT NOT NULL)');
   }
@@ -68,21 +43,27 @@ initDatabase() async {
     return notesModel;
   }
 
-  Future<List<NotesModel>> getNotesList() async {
+  Future<List<NotesModel>> getNotesList() async{
+
     var dbClient = await db;
 
     final List<Map<String, Object?>> queryResult = await dbClient!.query('notes');
 
     return queryResult.map((e) => NotesModel.fromMap(e)).toList();
+
   }
 
-  Future<int> delete(int? id) async {
+  Future<int> delete(int? id) async{
+
     var dbClient = await db;
+
     return await dbClient!.delete('notes', where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<int> update(NotesModel notesModel) async {
+  Future<int> update(NotesModel notesModel) async{
+
     var dbClient = await db;
+
     return dbClient!.update(
       'notes',
       notesModel.toMap(),

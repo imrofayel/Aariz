@@ -94,7 +94,7 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
             
             icon: Icon(
 
-              Theme.of(context).brightness == Brightness.light ? CupertinoIcons.sun_max : CupertinoIcons.sun_max_fill,
+              Theme.of(context).brightness == Brightness.light ? CupertinoIcons.sun_min : CupertinoIcons.sun_min_fill,
               
               color: Theme.of(context).colorScheme.tertiary, size: 32), 
             
@@ -123,27 +123,47 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
             
             onPressed: (){
 
-              Provider.of<ThemeSwitcher>(context, listen: false).ghibliTheme();
-
               showDialog(context: context, builder:(context) {
                   
-                  return CupertinoAlertDialog(content: Padding(
+                  return AlertDialog(content: Padding(
                       
                       padding: const EdgeInsets.all(5.0),
                       
-                      child: Column(
+                      child: SizedBox(
 
-                        children: [
+                        height: 120,
 
-                          Text("Aariz v1.0", style: TextStyle(fontSize: 30, color: Theme.of(context).colorScheme.tertiary, fontFamily: "Inter", height: 1.4), textAlign: TextAlign.left),
+                        width: 120,
 
-                          const Gap(20),
+                        child: Column(
+                        
+                          children: [
+                        
+                            Text("Aariz", style: TextStyle(fontSize: 28, color: Theme.of(context).colorScheme.tertiary, fontFamily: "Inter", height: 1.4), textAlign: TextAlign.left),
+                        
+                            const Gap(14),
+                        
+                            FilledButton(onPressed: (){
 
-                          Text("by Adam Rofayel", style: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.tertiary, fontFamily: "Inter"), textAlign: TextAlign.left),
+                            }, style: ButtonStyle(
+                  
+                              side: MaterialStatePropertyAll(BorderSide(color: Theme.of(context).colorScheme.secondary)),
 
-                        ],
+                              padding: const MaterialStatePropertyAll(EdgeInsets.all(14)), overlayColor: const MaterialStatePropertyAll(Colors.transparent), shadowColor: const MaterialStatePropertyAll(Colors.transparent), backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)), 
+                              
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 8, right: 8),
+                                child: Text('by Naveed azhar', textScaler: const TextScaler.linear(1.4), style: TextStyle(color: Theme.of(context).colorScheme.tertiary.withOpacity(0.8))),
+                              )),
+                        
+                          ],
+                        ),
                       ),
-                  ));
+                  ),
+                  
+                  surfaceTintColor: Colors.transparent,
+
+                  );
               });
 
             }, 

@@ -24,7 +24,7 @@ class Themes {
 
       seedColor: Colors.green,
 
-      background: const Color.fromRGBO(218, 218, 218, 1),
+      background: const Color.fromARGB(255, 233, 232, 232),
 
       secondary: const Color.fromRGBO(197, 197, 197, 1),
 
@@ -78,9 +78,9 @@ class Themes {
 
       background: const Color.fromRGBO(40, 47, 40, 1),
 
-      secondary: const Color.fromRGBO(46, 66, 52, 1),
+      secondary: const Color.fromARGB(255, 53, 83, 62),
 
-      primary: const Color.fromRGBO(45, 63, 50, 1),
+      primary: const Color.fromARGB(255, 43, 65, 49),
 
       primaryContainer: const Color.fromARGB(255, 212, 106, 85),
 
@@ -89,59 +89,6 @@ class Themes {
       tertiaryContainer: const Color.fromARGB(255, 215, 239, 95),
 
       tertiary: const Color.fromRGBO(192, 212, 190, 1),
-
-    ),
-
-    appBarTheme: const AppBarTheme(
-      
-      elevation: 0,
-
-      iconTheme: IconThemeData(size: 32),
-
-      shadowColor: Colors.transparent,
-
-      actionsIconTheme: IconThemeData(size: 34),
-
-      toolbarHeight: 80,
-    ),
-  );
-
-
-  static ThemeData ghibliTheme = ThemeData(
-
-    useMaterial3: true,
-
-    fontFamily: "Itim",
-
-    textTheme: const TextTheme(
-
-      bodyMedium: TextStyle(color: Colors.black),
-      
-      bodyLarge: TextStyle(color: Colors.black),
-
-      bodySmall: TextStyle(color: Colors.black),
-
-    ),
-
-    colorScheme: ColorScheme.fromSeed(
-
-      brightness: Brightness.light,
-
-      seedColor: Colors.green,
-
-      background: const Color.fromRGBO(234, 235, 220,1),
-
-      secondary: const Color.fromRGBO(238, 239, 223, 1),
-
-      primary: const Color.fromRGBO(245, 245, 244, 1),
-
-      primaryContainer: const Color.fromRGBO(51, 158, 184, 1),
-
-      secondaryContainer: const Color.fromRGBO(162, 217, 217, 1),
-
-      tertiaryContainer: const Color.fromRGBO(232, 184, 235, 1),
-
-      tertiary: Colors.black,
 
     ),
 

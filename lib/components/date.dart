@@ -18,11 +18,13 @@ Future<DateTime> showDatePickerDialog(BuildContext context) async {
           
             decoration: BoxDecoration(
               
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).colorScheme.background,
           
             ),
           
             child: CupertinoDatePicker(
+
+              backgroundColor: Theme.of(context).colorScheme.background,
                     
               onDateTimeChanged: (value) {
                     
@@ -38,7 +40,7 @@ Future<DateTime> showDatePickerDialog(BuildContext context) async {
                     
               maximumDate: DateTime.now(),
                     
-              itemExtent: 60,
+              itemExtent: 65,
                     
             ),
           ),
