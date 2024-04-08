@@ -109,104 +109,109 @@ class _NotesViewState extends State<NotesView> {
                                       
                                         children: [
                                                       
-                                          Row(
-                                                      
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          SingleChildScrollView(
 
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                      
-                                            children: [
-                                              
-                                              SizedBox(width: 180, child: SingleChildScrollView(scrollDirection: Axis.horizontal, child: Text(snapshot.data![index].title, textScaler: const TextScaler.linear(1.8)))),
-
-                                              Row(
-
-                                                mainAxisAlignment: MainAxisAlignment.start,
-
-                                                children: [
-
-                                                  FilledButton.tonal(
+                                            scrollDirection: Axis.horizontal,
+                                            
+                                            child: Row(
+                                                        
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                        
+                                              children: [
                                                 
-                                                    onPressed: (){},
+                                                SizedBox(width: 180, child: SingleChildScrollView(scrollDirection: Axis.horizontal, child: Text(snapshot.data![index].title, textScaler: const TextScaler.linear(1.8)))),
+                                            
+                                                Row(
+                                            
+                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                            
+                                                  children: [
+                                            
+                                                    FilledButton.tonal(
                                                   
-                                                    style: ButtonStyle(
-                                                                          
-                                                      padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 6, 10, 6)),
-                                                          
-                                                      backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
-                                                    ), 
-                                                  
-                                                    child: SingleChildScrollView(
-                                                          
-                                                      scrollDirection: Axis.horizontal,
-                                                          
-                                                      child: Row(
-                                                                                  
-                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                                                  
-                                                        children: [
-                                                                                  
-                                                          Icon(Icons.circle, color: 
-                                                          
-                                                          categoryColor(snapshot.data![index].category, context),
-                                                          
-                                                          size: 14
-                                                          
-                                                          ),
-                                                                                  
-                                                          const Gap(4),
-                                                                                  
-                                                          Text(snapshot.data![index].category, textScaler: const TextScaler.linear(1.3)),
-                                                        ],
+                                                      onPressed: (){},
+                                                    
+                                                      style: ButtonStyle(
+                                                                            
+                                                        padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 6, 10, 6)),
+                                                            
+                                                        backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary)
+                                                      ), 
+                                                    
+                                                      child: SingleChildScrollView(
+                                                            
+                                                        scrollDirection: Axis.horizontal,
+                                                            
+                                                        child: Row(
+                                                                                    
+                                                          mainAxisAlignment: MainAxisAlignment.center,
+                                                                                    
+                                                          children: [
+                                                                                    
+                                                            Icon(Icons.circle, color: 
+                                                            
+                                                            categoryColor(snapshot.data![index].category, context),
+                                                            
+                                                            size: 14
+                                                            
+                                                            ),
+                                                                                    
+                                                            const Gap(4),
+                                                                                    
+                                                            Text(snapshot.data![index].category, textScaler: const TextScaler.linear(1.3)),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-
-                                                  Builder(
-
-                                                    builder: (context) {
-
-                                                      return IconButton(onPressed: (){
-                                                      
-                                                        showPopover(context: context,
-
-                                                        barrierColor: Colors.transparent, 
-
-                                                        backgroundColor: Colors.transparent,
-
-                                                        direction: PopoverDirection.left,
-
-                                                        shadow: List.empty(),
-
-                                                        arrowWidth: 0, arrowHeight: 0,
+                                            
+                                                    Builder(
+                                            
+                                                      builder: (context) {
+                                            
+                                                        return IconButton(onPressed: (){
                                                         
-                                                        bodyBuilder:(context) {
-                                                      
-                                                          return SizedBox(
-                                                      
-                                                            child: FilledButton(onPressed: (){
+                                                          showPopover(context: context,
+                                            
+                                                          barrierColor: Colors.transparent, 
+                                            
+                                                          backgroundColor: Colors.transparent,
+                                            
+                                                          direction: PopoverDirection.left,
+                                            
+                                                          shadow: List.empty(),
+                                            
+                                                          arrowWidth: 0, arrowHeight: 0,
+                                                          
+                                                          bodyBuilder:(context) {
+                                                        
+                                                            return SizedBox(
+                                                        
+                                                              child: FilledButton(onPressed: (){
+                                                                
+                                                              value.dbHelper.delete(snapshot.data![index].id);
+                                            
+                                                              value.initDatabase();
                                                               
-                                                            value.dbHelper.delete(snapshot.data![index].id);
-
-                                                            value.initDatabase();
-                                                            
-                                                            value.setLength();
-
-                                                            Navigator.pop(context);
-
-                                                            }, style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary), padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 20, 12, 20)), side: MaterialStatePropertyAll(BorderSide(color: Theme.of(context).colorScheme.secondary))), child: Icon(CupertinoIcons.delete, size: 24, color: Theme.of(context).colorScheme.tertiary))
-                                                      
-                                                          );
-                                                        },
-                                                      );
-                                                      
-                                                      }, icon: const Icon(LineIcons.verticalEllipsis, size: 28), padding: EdgeInsets.zero);
-                                                    }
-                                                  ),
-
-                                                ],
-                                              ),
-                                            ],
+                                                              value.setLength();
+                                            
+                                                              Navigator.pop(context);
+                                            
+                                                              }, style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.primary), padding: const MaterialStatePropertyAll(EdgeInsets.fromLTRB(12, 20, 12, 20)), side: MaterialStatePropertyAll(BorderSide(color: Theme.of(context).colorScheme.secondary))), child: Icon(CupertinoIcons.delete, size: 24, color: Theme.of(context).colorScheme.tertiary))
+                                                        
+                                                            );
+                                                          },
+                                                        );
+                                                        
+                                                        }, icon: const Icon(LineIcons.verticalEllipsis, size: 28), padding: EdgeInsets.zero);
+                                                      }
+                                                    ),
+                                            
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                           
                                           FilledButton.tonal(
